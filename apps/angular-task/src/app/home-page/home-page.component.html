@@ -1,0 +1,6 @@
+<crx-user-filter />
+<div class="card-container">
+    @for (user of users(); track user.id) {
+        <crx-user-card [user]="user" />
+    }
+</div>
