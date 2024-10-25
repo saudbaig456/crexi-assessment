@@ -1,4 +1,5 @@
 # Angular Task
+Install packages with `npm i --legacy-peer-deps`
 
 ## Design
 
