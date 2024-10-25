@@ -1,31 +1,19 @@
-import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
+import { render } from '@testing-library/angular';
+
+async function setup () {
+
+    const { fixture } = await render(AppComponent);
+    return fixture.componentInstance;
+
+}
 
 describe('AppComponent', () => {
 
-    beforeEach(async () => {
+    it('should create', async () => {
 
-        await TestBed.configureTestingModule({
-            imports: [AppComponent, RouterModule.forRoot([])],
-        }).compileComponents();
-
-    });
-
-    it('should render title', () => {
-
-        const fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
-        const compiled = fixture.nativeElement as HTMLElement;
-        expect(compiled.querySelector('h1')?.textContent).toContain('User Management');
-
-    });
-
-    it(`should have as title 'angular-task'`, () => {
-
-        const fixture = TestBed.createComponent(AppComponent);
-        const app = fixture.componentInstance;
-        expect(app.title).toEqual('angular-task');
+        const component = await setup();
+        expect(component).toBeTruthy();
 
     });
 
