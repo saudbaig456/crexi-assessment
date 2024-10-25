@@ -1,0 +1,19 @@
+<mat-card appearance="outlined" class="form-container">
+    <mat-card-header>
+        <mat-card-title> Filter Users: </mat-card-title>
+        <br />
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="filterForm" class="filter-form">
+            <mat-radio-group formControlName="favorites">
+                @for (favOption of favoritesOptions; track $index) {
+                    <mat-radio-button [value]="favOption">{{ favOption }}</mat-radio-button>
+                }
+            </mat-radio-group>
+            <mat-form-field appearance="outline" class="search-field">
+                <mat-label>Search Name:</mat-label>
+                <input formControlName="searchTerm" matInput />
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+</mat-card>
